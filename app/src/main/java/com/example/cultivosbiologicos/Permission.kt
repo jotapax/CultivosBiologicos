@@ -4,6 +4,10 @@ import android.content.Context
 
 class Permission(ctx : Context, val screen : String, val rol : Rol) {
 
+    companion object {
+        val SCREEN = "Muestras"
+    }
+
     val access : Boolean
     val insert : Boolean
     val update : Boolean

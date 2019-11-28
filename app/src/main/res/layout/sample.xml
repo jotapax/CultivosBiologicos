@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:focusable="true"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/patientLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cultureLabel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/cultureLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Culture"
+            app:layout_constraintTop_toBottomOf="@id/patientLabel"
+            app:layout_constraintBottom_toTopOf="@+id/solutionLabel"
+            app:layout_constraintLeft_toLeftOf="@id/patientLabel"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/solutionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solution"
+            app:layout_constraintTop_toBottomOf="@id/cultureLabel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/patientLabel"/>
+
+        <TextView
+            android:id="@+id/patient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient"
+            app:layout_constraintTop_toTopOf="@id/patientLabel"
+            app:layout_constraintLeft_toRightOf="@id/patientLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/patientLabel"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/culture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Culture"
+            app:layout_constraintTop_toTopOf="@id/cultureLabel"
+            app:layout_constraintLeft_toRightOf="@id/cultureLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/cultureLabel"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/solution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solution"
+            app:layout_constraintTop_toTopOf="@id/solutionLabel"
+            app:layout_constraintLeft_toRightOf="@id/solutionLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/solutionLabel"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,17 +1,27 @@
 package com.example.cultivosbiologicos
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView.OnEditorActionListener
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
+
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        password.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEND) {
+                login.performClick()
+                return@OnEditorActionListener true
+            }
+            false
+        })
 
         login.setOnClickListener {
 
@@ -41,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun launchScreen(user : User) {
 
-        val permission = Permission(this, "Muestras", user.rol)
+        val permission = Permission(this, Permission.SCREEN, user.rol)
 
         if (!permission.access) {
 
@@ -52,6 +62,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MuestrasActivity::class.java)
             intent.putExtra(MuestrasActivity.USER_LOGGED, user.username)
             startActivity(intent)
+            finish()
         }
     }
 }
